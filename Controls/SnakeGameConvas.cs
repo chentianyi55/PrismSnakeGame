@@ -97,8 +97,25 @@ namespace PrismSnakeGame.Controls
         }
 
         private void UpdateVisuals()
-        { 
-        
+        {
+            if (_canvas == null) return;
+
+            _canvas.Children.Clear();
+
+            if (SnakePositions != null)
+            {
+                foreach(var position in SnakePositions)
+                {
+                    var rect = new Rectangle
+                    {
+                        Width = GridSize,
+                        Height = GridSize,
+                        Fill = Brushes.Green
+                    };
+                    Canvas.SetLeft(rect, point.X * GridSize);
+                }
+                
+            }
         }
         }
 }
